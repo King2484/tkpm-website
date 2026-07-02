@@ -126,7 +126,7 @@ export default function Maintenance() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mt-8">
             
             {/* Left Sidebar (Service Directory List) */}
-            <div className="lg:col-span-4 space-y-8">
+            <div className="hidden lg:block lg:col-span-4 space-y-8">
               <div>
                 <span className="text-[11px] font-extrabold uppercase tracking-widest text-primary font-heading block mb-6 px-1">
                   Services
