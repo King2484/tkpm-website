@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/project-management", label: "Project Management" },
   { href: "/renovations", label: "Renovations" },
   { href: "/landscaping-cleaning", label: "Landscaping & Cleaning" },
+  { href: "/property-sourcing", label: "Property Sourcing" },
   { href: "/contact", label: "Contact" },
 ];
 

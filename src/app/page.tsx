@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Hammer, Wrench, Shield, Sparkles, Check, ChevronRight, HardHat, Trees } from "lucide-react";
+import { ArrowRight, Hammer, Wrench, Shield, Sparkles, Check, ChevronRight, HardHat, Trees, Search } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -39,6 +39,12 @@ const serviceCards = [
     description: "Complete hands-off trade management organizing material schedules, budgets, quality checks, and sign-off.",
     href: "/project-management",
     icon: Shield,
+  },
+  {
+    title: "Property Sourcing",
+    description: "Premium rental and acquisition matchmaking leveraging private landlords and off-market housing agencies.",
+    href: "/property-sourcing",
+    icon: Search,
   },
 ];
 
@@ -151,7 +157,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {serviceCards.map((service, idx) => {
               const Icon = service.icon;
               return (

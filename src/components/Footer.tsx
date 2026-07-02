@@ -83,6 +83,11 @@ export default function Footer() {
                 Project Management
               </Link>
             </li>
+            <li>
+              <Link href="/property-sourcing" className="text-luxury-muted hover:text-secondary font-medium transition-colors">
+                Property Sourcing
+              </Link>
+            </li>
           </ul>
         </div>
 
