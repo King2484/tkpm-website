@@ -26,8 +26,12 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${outfit.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-luxury-bg text-luxury-text font-body selection:bg-primary/20 selection:text-primary">
+      <body 
+        className="min-h-full flex flex-col bg-luxury-bg text-luxury-text font-body selection:bg-primary/20 selection:text-primary"
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>
