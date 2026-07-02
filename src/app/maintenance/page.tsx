@@ -276,36 +276,10 @@ export default function Maintenance() {
                               transition={{ duration: 0.25 }}
                               className="overflow-hidden"
                             >
-                              <div className="pb-8 pt-3 px-6 space-y-6">
+                              <div className="pb-6 pt-1 px-6">
                                 <p className="text-luxury-muted text-xs md:text-sm font-body leading-relaxed">
                                   {service.description}
                                 </p>
-
-                                {/* Mobile Sub-items */}
-                                <div className="space-y-3">
-                                  {service.items.map((bullet, idx) => {
-                                    const [title, desc] = bullet.split(": ");
-                                    return (
-                                      <div key={idx} className="p-4 rounded-xl bg-luxury-alt border border-luxury-border flex gap-3">
-                                        <div className="h-7 w-7 rounded-lg bg-white border border-luxury-border text-primary flex items-center justify-center shrink-0 mt-0.5">
-                                          <Check className="h-4 w-4 text-secondary" />
-                                        </div>
-                                        <div>
-                                          <h4 className="font-heading font-bold text-xs text-primary mb-1">{title}</h4>
-                                          <p className="text-luxury-muted text-[11px] leading-relaxed font-body">{desc}</p>
-                                        </div>
-                                      </div>
-                                    );
-                                  })}
-                                </div>
-
-                                {/* Mobile CTA */}
-                                <Link
-                                  href={service.href || "/contact"}
-                                  className="w-full block text-center py-3.5 rounded-md bg-primary hover:bg-primary-hover text-white font-bold text-xs uppercase tracking-widest shadow-md transition-all mt-4"
-                                >
-                                  {service.cta}
-                                </Link>
                               </div>
                             </motion.div>
                           )}
