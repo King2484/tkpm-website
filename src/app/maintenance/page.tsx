@@ -69,7 +69,7 @@ export default function Maintenance() {
             custom={1}
             className="font-heading font-extrabold text-5xl md:text-6xl tracking-tight text-primary mb-6"
           >
-            Property <span className="text-secondary">Maintenance</span>
+            Our <span className="text-secondary">Services</span>
           </motion.h1>
 
           <motion.p
