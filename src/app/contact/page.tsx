@@ -76,8 +76,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <div className="text-[10px] uppercase font-bold text-luxury-muted tracking-widest mb-1">Email Inquiry</div>
-                      <a href="mailto:office@tkpm.com" className="text-sm font-bold text-primary hover:text-secondary transition-colors">
-                        office@tkpm.com
+                      <a href="mailto:tkpm@mail.com" className="text-sm font-bold text-primary hover:text-secondary transition-colors">
+                        tkpm@mail.com
                       </a>
                     </div>
                   </div>
@@ -88,8 +88,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <div className="text-[10px] uppercase font-bold text-luxury-muted tracking-widest mb-1">Telephone Helpdesk</div>
-                      <a href="tel:+12065550188" className="text-sm font-bold text-primary hover:text-secondary transition-colors">
-                        +1 (206) 555-0188
+                      <a href="tel:074" className="text-sm font-bold text-primary hover:text-secondary transition-colors">
+                        074
                       </a>
                     </div>
                   </div>
@@ -191,7 +191,7 @@ export default function Contact() {
                             name="phone"
                             value={form.phone}
                             onChange={handleChange}
-                            placeholder="+1 (206) 555-0188"
+                            placeholder="074"
                             disabled={status === "loading"}
                             className="w-full px-4 py-3.5 rounded-lg bg-luxury-alt border border-luxury-border focus:outline-none focus:border-secondary text-slate-800 text-sm font-semibold transition-all focus:ring-1 focus:ring-secondary/20 shadow-sm"
                           />

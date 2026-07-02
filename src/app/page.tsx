@@ -23,28 +23,28 @@ const fadeInUp = {
 
 const serviceCards = [
   {
-    title: "Property Renovations",
-    description: "Exceptional kitchen upgrades, luxury bathrooms, space extensions, and complete residential refurbishments.",
-    href: "/renovations",
-    icon: Hammer,
-  },
-  {
     title: "Property Maintenance",
     description: "Responsive repairs, scheduled upkeep, compliance testing, and preventative property protection.",
     href: "/maintenance",
     icon: Wrench,
   },
   {
+    title: "Landscaping & Commercial Cleaning",
+    description: "Professional interior/exterior deep cleaning, garden styling, turfs, paving, and outdoor maintenance.",
+    href: "/landscaping-cleaning",
+    icon: Trees,
+  },
+  {
+    title: "Property Renovations",
+    description: "Exceptional kitchen upgrades, luxury bathrooms, space extensions, and complete residential refurbishments.",
+    href: "/renovations",
+    icon: Hammer,
+  },
+  {
     title: "Project Management",
     description: "Complete hands-off trade management organizing material schedules, budgets, quality checks, and sign-off.",
     href: "/project-management",
     icon: Shield,
-  },
-  {
-    title: "Property Sourcing",
-    description: "Premium rental and acquisition matchmaking leveraging private landlords and off-market housing agencies.",
-    href: "/property-sourcing",
-    icon: Search,
   },
 ];
 
@@ -100,19 +100,12 @@ export default function Home() {
               custom={3}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Link
-                href="/contact"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md bg-primary hover:bg-primary-hover text-white font-bold tracking-widest uppercase text-[10px] shadow-lg transition-all duration-300"
-              >
-                Book a Consultation
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                href="/maintenance"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md bg-white hover:bg-slate-50 text-primary font-bold border border-luxury-border tracking-widest uppercase text-[10px] shadow-sm transition-all duration-300"
+              <a
+                href="#services"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md bg-primary hover:bg-primary-hover text-white font-bold tracking-widest uppercase text-[10px] shadow-lg transition-all duration-300"
               >
                 Explore Services
-              </Link>
+              </a>
             </motion.div>
           </div>
 
@@ -130,23 +123,12 @@ export default function Home() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent pointer-events-none" />
-              
-              {/* Floating gold element to represent quality */}
-              <div className="absolute bottom-6 left-6 right-6 p-5 glassmorphism-luxury rounded-xl flex items-center justify-between border-l-4 border-secondary shadow-lg">
-                <div>
-                  <h4 className="font-heading font-extrabold text-sm text-primary">Fully Insured & Certified</h4>
-                  <p className="text-[11px] font-semibold text-luxury-muted">Premium peace-of-mind guarantee</p>
-                </div>
-                <span className="h-9 w-9 rounded-full bg-secondary text-white flex items-center justify-center shrink-0 shadow-gold-glow">
-                  <Shield className="h-4.5 w-4.5" />
-                </span>
-              </div>
             </motion.div>
           </div>
         </section>
 
         {/* Section: What We Do */}
-        <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-16 xl:px-24 max-w-[1600px] mx-auto z-10 border-t border-luxury-border/60">
+        <section id="services" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-16 xl:px-24 max-w-[1600px] mx-auto z-10 border-t border-luxury-border/60">
           <div className="text-center max-w-xl mx-auto mb-20 space-y-4">
             <span className="text-[10px] uppercase font-bold text-secondary tracking-widest block">Our Solutions</span>
             <h2 className="font-heading font-extrabold text-3xl md:text-5xl text-primary">
@@ -189,127 +171,6 @@ export default function Home() {
               );
             })}
           </div>
-
-          {/* Landscaping & Cleaning Highlights Strip */}
-          <div className="mt-12 p-8 md:p-10 rounded-xl bg-luxury-alt border border-luxury-border shadow-luxury-soft grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-3">
-              <div className="inline-flex items-center gap-1.5 text-[10px] font-bold text-secondary uppercase tracking-widest">
-                <Trees className="h-4 w-4" />
-                <span>Outdoor & Exterior Styling</span>
-              </div>
-              <h3 className="font-heading font-bold text-2xl text-primary">Landscaping & Commercial Cleaning</h3>
-              <p className="text-luxury-muted text-sm leading-relaxed max-w-3xl">
-                We handle garden design, turfs, paving, weeding, patio setups, and professional interior/exterior deep cleaning (end-of-tenancy, pressure washing, window washing).
-              </p>
-            </div>
-            <div className="lg:col-span-4 lg:text-right shrink-0">
-              <Link
-                href="/landscaping-cleaning"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-primary hover:bg-primary-hover text-white font-bold text-[10px] tracking-widest uppercase shadow-md transition-all duration-300"
-              >
-                <span>Landscaping & Cleaning</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Section: Stats & Authority */}
-        <section className="relative py-24 md:py-32 bg-primary text-white overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-bl-full pointer-events-none" />
-          <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 xl:px-24 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-5 space-y-6">
-              <span className="text-[10px] uppercase tracking-widest font-extrabold text-secondary">Elite Standards</span>
-              <h2 className="font-heading font-extrabold text-3xl md:text-5xl leading-tight">
-                Trustworthy. <br />
-                Professional. <br />
-                Dependable.
-              </h2>
-              <p className="text-blue-100/80 text-sm md:text-base leading-relaxed">
-                TKPM bridges the gap between high-end architectural vision and dependable, day-to-day property maintenance. Homeowners, investors, and property businesses depend on us for consistent delivery.
-              </p>
-            </div>
-
-            <div className="lg:col-span-7 w-full grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <div className="p-6 rounded-xl bg-white/5 border border-white/10 space-y-2">
-                <span className="font-heading font-extrabold text-4xl text-secondary block">500+</span>
-                <span className="text-xs text-blue-100 uppercase tracking-widest font-bold">Properties Handled</span>
-                <p className="text-blue-100/60 text-[11px] leading-relaxed">Renovations, maintenance programs, and daily upkeep.</p>
-              </div>
-
-              <div className="p-6 rounded-xl bg-white/5 border border-white/10 space-y-2">
-                <span className="font-heading font-extrabold text-4xl text-secondary block">100%</span>
-                <span className="text-xs text-blue-100 uppercase tracking-widest font-bold">Client Satisfaction</span>
-                <p className="text-blue-100/60 text-[11px] leading-relaxed">Attentive project coordinators and vetted local trades.</p>
-              </div>
-
-              <div className="p-6 rounded-xl bg-white/5 border border-white/10 space-y-2">
-                <span className="font-heading font-extrabold text-4xl text-secondary block">15+ Years</span>
-                <span className="text-xs text-blue-100 uppercase tracking-widest font-bold">Industry Expertise</span>
-                <p className="text-blue-100/60 text-[11px] leading-relaxed">Refining timelines, supplier relations, and project results.</p>
-              </div>
-
-              <div className="p-6 rounded-xl bg-white/5 border border-white/10 space-y-2">
-                <span className="font-heading font-extrabold text-4xl text-secondary block">24/7</span>
-                <span className="text-xs text-blue-100 uppercase tracking-widest font-bold">Support Response</span>
-                <p className="text-blue-100/60 text-[11px] leading-relaxed">Direct communication line for emergency building checks.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Section: Testimonials */}
-        <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-16 xl:px-24 max-w-[1600px] mx-auto z-10">
-          <div className="text-center max-w-xl mx-auto mb-20 space-y-4">
-            <span className="text-[10px] uppercase font-bold text-secondary tracking-widest block">Client Feedback</span>
-            <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-primary">
-              Trusted by Leading Property Owners
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="p-8 rounded-xl bg-luxury-alt border border-luxury-border shadow-luxury-soft flex flex-col justify-between"
-            >
-              <p className="text-luxury-muted text-sm italic leading-relaxed mb-6">
-                &ldquo;TKPM completed a kitchen and bathroom renovation on my rental home. They coordinated the plumbing, carpentering, and plastering trades flawlessly. The quality standard was exceptional.&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-secondary text-white font-heading font-bold text-sm flex items-center justify-center shrink-0 shadow-gold-glow">
-                  MV
-                </div>
-                <div>
-                  <h4 className="font-heading font-bold text-sm text-primary">Marcus Vance</h4>
-                  <p className="text-[10px] font-semibold text-luxury-muted">Real Estate Investor</p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="p-8 rounded-xl bg-luxury-alt border border-luxury-border shadow-luxury-soft flex flex-col justify-between"
-            >
-              <p className="text-luxury-muted text-sm italic leading-relaxed mb-6">
-                &ldquo;Their maintenance responsiveness has saved my company countless hours. Repairs are scheduled fast and completed professionally. Truly a reliable team.&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-secondary text-white font-heading font-bold text-sm flex items-center justify-center shrink-0 shadow-gold-glow">
-                  SS
-                </div>
-                <div>
-                  <h4 className="font-heading font-bold text-sm text-primary">Sophia Sterling</h4>
-                  <p className="text-[10px] font-semibold text-luxury-muted">Residential Landlord</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
         </section>
 
         {/* Section: Action Banner */}
@@ -329,10 +190,10 @@ export default function Home() {
                 Get a Quote
               </Link>
               <a
-                href="tel:+12065550188"
+                href="tel:074"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md bg-white hover:bg-slate-50 text-primary font-bold border border-luxury-border tracking-widest uppercase text-[10px] shadow-sm transition-all duration-300"
               >
-                Call +1 (206) 555-0188
+                Call 074
               </a>
             </div>
           </div>

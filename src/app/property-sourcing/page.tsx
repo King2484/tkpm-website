@@ -694,7 +694,7 @@ export default function PropertySourcing() {
                                   name="phone"
                                   value={form.phone}
                                   onChange={handleChange}
-                                  placeholder="+1 (206) 555-0188"
+                                  placeholder="074"
                                   className="w-full px-4 py-3.5 rounded-lg bg-white border border-luxury-border focus:outline-none focus:border-secondary text-slate-800 text-sm font-semibold transition-all shadow-sm"
                                 />
                               </div>
@@ -822,10 +822,10 @@ export default function PropertySourcing() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full sm:w-auto">
               <a
-                href="tel:+12065550188"
-                className="px-8 py-4 rounded-md bg-secondary hover:bg-secondary-hover text-white font-heading font-bold text-[10px] tracking-widest uppercase shadow-gold-glow text-center transition-all hover:scale-[1.01]"
+                href="tel:074"
+                className="px-8 py-4 rounded-md bg-secondary hover:bg-secondary-hover text-primary font-heading font-bold text-[10px] tracking-widest uppercase shadow-gold-glow text-center transition-all hover:scale-[1.01]"
               >
-                +1 (206) 555-0188
+                074
               </a>
             </div>
           </div>

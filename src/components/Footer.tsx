@@ -14,9 +14,6 @@ export default function Footer() {
             </span>
             <span className="h-2 w-2 rounded-full bg-secondary" />
           </Link>
-          <p className="text-luxury-muted text-sm leading-relaxed max-w-xs">
-            A premium property solutions firm delivering luxury renovations, commercial maintenance, and complete project oversight across Seattle.
-          </p>
           <div className="flex items-center gap-3 text-luxury-muted pt-2">
             {/* Twitter */}
             <a
@@ -94,7 +91,7 @@ export default function Footer() {
         {/* Contact Info Column */}
         <div>
           <h4 className="font-heading font-extrabold text-primary mb-4 uppercase tracking-widest text-[11px]">
-            Contact Details
+            TKPM Headquarters - CONTACT US
           </h4>
           <ul className="space-y-4 text-sm text-luxury-muted">
             <li className="flex items-start gap-2.5">
@@ -105,14 +102,14 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2.5">
               <Phone className="h-4.5 w-4.5 text-secondary shrink-0" />
-              <a href="tel:+12065550188" className="hover:text-secondary font-medium transition-colors">
-                +1 (206) 555-0188
+              <a href="tel:074" className="hover:text-secondary font-medium transition-colors">
+                074
               </a>
             </li>
             <li className="flex items-center gap-2.5">
               <Mail className="h-4.5 w-4.5 text-secondary shrink-0" />
-              <a href="mailto:office@tkpm.com" className="hover:text-secondary font-medium transition-colors">
-                office@tkpm.com
+              <a href="mailto:tkpm@mail.com" className="hover:text-secondary font-medium transition-colors">
+                tkpm@mail.com
               </a>
             </li>
           </ul>

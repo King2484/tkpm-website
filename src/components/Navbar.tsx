@@ -45,11 +45,13 @@ export default function Navbar() {
       {!isScrolled && (
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 pb-2 hidden md:flex justify-end text-[11px] font-semibold tracking-wider text-luxury-muted uppercase border-b border-slate-200/30">
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1.5">
+            <a href="tel:074" className="flex items-center gap-1.5 hover:text-primary transition-colors">
               <Phone className="h-3.5 w-3.5 text-secondary" />
-              <span>Call: +1 (206) 555-0188</span>
-            </span>
-            <span>Email: office@tkpm.com</span>
+              <span>Call: 074</span>
+            </a>
+            <a href="mailto:tkpm@mail.com" className="hover:text-primary transition-colors">
+              Email: tkpm@mail.com
+            </a>
           </div>
         </div>
       )}
