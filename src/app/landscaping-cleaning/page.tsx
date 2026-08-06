@@ -132,8 +132,8 @@ export default function LandscapingCleaning() {
               className="relative rounded-2xl overflow-hidden border border-luxury-border shadow-luxury-card aspect-[4/5]"
             >
               <img
-                src="/landscaping-garden.png"
-                alt="TKPM Professional Landscaping Garden"
+                src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1200&q=80"
+                alt="UK Garden & Landscaping"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/25 to-transparent" />

@@ -31,7 +31,7 @@ const steps = [
   {
     num: "02",
     title: "Vetting & Organizing Licensed Trades",
-    description: "Aligning licensed professionals (carpenters, electricians, plasterers) to coordinate seamless execution.",
+    description: "Aligning licensed professionals (joiners, electricians, plasterers, plumbers) to coordinate seamless execution.",
     icon: Users,
   },
   {
@@ -137,7 +137,7 @@ export default function ProjectManagement() {
               className="relative rounded-2xl overflow-hidden border border-luxury-border shadow-luxury-card aspect-[4/5]"
             >
               <img
-                src="/project-workspace.png"
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
                 alt="TKPM Project Management Workspace"
                 className="w-full h-full object-cover"
               />

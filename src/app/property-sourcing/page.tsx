@@ -59,23 +59,23 @@ const timelineSteps = [
 const faqs = [
   {
     question: "How long does it take to source a suitable property?",
-    answer: "Typically, we deliver a matched shortlist of 3-5 high-potential properties within 7 to 14 days of receiving your intake form. The entire process from search initiation to key handover generally takes 3 to 4 weeks depending on client feedback.",
+    answer: "Typically, we deliver a matched shortlist of properties within 7 to 14 days of receiving your intake form. The entire process from search initiation to key handover generally takes 3 to 4 weeks depending on client feedback.",
   },
   {
-    question: "Do you charge any upfront consultation fees?",
-    answer: "No. We operate strictly on a success-only model. You pay nothing upfront, and our service fee is only due once we secure a property you want to rent or buy, and the contract is officially signed.",
+    question: "Do you charge any upfront consultation fee?",
+    answer: "Yes, we charge. Get in touch for prices.",
   },
   {
     question: "What happens if I reject all sourced properties?",
-    answer: "If you decide none of the properties on our shortlist fit your requirements, you are under no obligation to proceed and will not be charged. We can refine the search parameters and issue a secondary shortlist, or terminate the search.",
+    answer: "If you decide none of the properties on our shortlist fit your requirements, we can refine your search parameters and issue a secondary shortlist.",
   },
   {
     question: "Do you inspect properties in person?",
-    answer: "Yes, absolutely. We do not source properties blindly. A dedicated agent physically visits and inspects each property to audit structural systems, look for dampness/snagging issues, verify layout spacing, and film virtual tours for you.",
+    answer: "Yes, absolutely. A dedicated agent physically visits and inspects each property to verify condition, dampness/snagging issues, and layout spacing for you.",
   },
   {
     question: "How do you get access to off-market properties?",
-    answer: "Over the last 15 years, TKPM has built tight relationships with private landlords, estate developers, and corporate housing agencies. Many landlords list directly with us to avoid public listing fees and secure pre-screened clients.",
+    answer: "Over the last 4 years, TKPM has built tight relationships with private landlords, estate developers, and corporate housing agencies. Many landlords list directly with us to secure pre-screened clients.",
   },
 ];
 
@@ -234,8 +234,8 @@ export default function PropertySourcing() {
                 className="relative rounded-2xl overflow-hidden border border-luxury-border shadow-luxury-card aspect-[1.35/1] w-full"
               >
                 <img
-                  src="/property-sourcing.png"
-                  alt="Luxury keys on white marble countertop"
+                  src="/uk-terraced-house.png"
+                  alt="Typical UK Red-Brick Terraced House"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none" />

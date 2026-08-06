@@ -31,7 +31,7 @@ const renovationTypes = [
   },
   {
     title: "Full Home Refurbishments",
-    desc: "Complete layout redesigns, flooring overhaul, drywall leveling, structural improvements, and premium paints.",
+    desc: "Complete layout redesigns, flooring overhaul, plasterboard & plastering, structural improvements, and decorating.",
   },
 ];
 

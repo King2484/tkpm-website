@@ -3,11 +3,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Settings, Check, ChevronDown, Hammer, Trees, ClipboardList, Search, ShieldCheck } from "lucide-react";
+import { Settings, Check, ChevronDown, Hammer, Trees, ClipboardList, Search, Truck, Clock, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// Animation settings
 const fadeInUp = {
   hidden: { opacity: 0, y: 15 },
   visible: (custom: number = 0) => ({
@@ -25,74 +24,75 @@ const servicesData = [
   {
     id: "maintenance",
     label: "Property Maintenance",
-    title: "Property Maintenance Services",
-    description: "Preventative upkeep, certified repairs, safety compliance, and emergency restoration. We maintain structural and aesthetic integrity to support your long-term capital assets.",
+    title: "Property Maintenance & Care",
+    description: "General property care and repair, preventative upkeep, safety compliance, cleaning, and garden landscaping for landlords and homeowners.",
     icon: Settings,
     items: [
-      "General Property Care & Repairs: Day-to-day carpentry, drywall patches, locks, custom cabinet adjustments, and minor plumbing repairs.",
-      "Scheduled Preventative Upkeep: Bi-annual inspections, gutter clearing, drain sweeps, roof inspections, and heating checks.",
-      "Safety & Compliance Checks: Gas leak diagnostics, electrical circuitry testing, smoke alarm checks, and carbon monoxide alignments.",
-      "24/7 Emergency Repairs: Dedicated contact lines for immediate intervention (critical leaks, power shutdowns, boiler outages)."
+      "General Property Care & Repairs: Day-to-day joinery & woodwork, lock changes, door adjustments, minor plumbing repairs, boiler call-outs, and paintwork touch-ups.",
+      "Cleaning & Sanitation Services: Pre-tenancy deep cleans, end-of-tenancy detailing, communal area cleaning, window washing, and pressure washing.",
+      "Landscaping & Garden Care: Garden upkeep, lawn mowing, hedge trimming, weed clearance, patio cleaning, and outdoor plant maintenance.",
+      "24/7 Emergency Call Out: Available anytime, even over the weekend. Both landlords and tenants can call out for critical leaks, heating breakdowns, or lockouts."
     ],
-    image: "/maintenance-service.png",
-    cta: "Book Maintenance"
+    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80",
+    cta: "Book Maintenance or Call Out"
   },
   {
     id: "renovations",
-    label: "Home Renovations",
-    title: "Luxury Home Renovations",
-    description: "Transforming spaces with high-end craftsmanship. We execute modern kitchen overhauls, bathroom retrofits, and complete property extensions designed to last.",
+    label: "Renovations & Alterations",
+    title: "Property Renovations & Refurbishment",
+    description: "Quality refurbishment services across residential properties. Kitchen modernisations, bathroom upgrades, decorating, and property extensions.",
     icon: Hammer,
     items: [
-      "Kitchen Remodeling: Luxury marble workspaces, bespoke cabinetry, high-end appliance integrations, and architectural lighting plans.",
-      "Bathroom Upgrades: Spa-like enclosures, walk-in tiling showers, double-vanities, and premium water fixture designs.",
-      "Full Home Refurbishments: Complete layout redesigns, flooring overhaul, drywall leveling, structural improvements, and premium paints."
+      "Kitchen Modernisations: Fitted cabinets, stone worktops, appliance installations, tiling, and lighting.",
+      "Bathroom Upgrades: Walk-in showers, bath replacements, wall and floor tiling, and sanitaryware fitting.",
+      "Full Property Refurbishments: Plastering, painting and decorating, floor layment, internal door replacements, and structural layout adjustments."
     ],
     image: "/kitchen-after.png",
     cta: "Get a Renovation Quote"
   },
   {
-    id: "landscaping",
-    label: "Landscaping & Cleaning",
-    title: "Landscaping & Commercial Cleaning",
-    description: "Enhance the beauty and street appeal of your property. We provide professional landscape architecture, regular garden maintenance, and deep-cleaning washes.",
-    icon: Trees,
-    items: [
-      "Landscaping & Garden Design: Bespoke garden layout design, softscaping, plants selection, paving, patios, and decking.",
-      "Professional Cleaning Solutions: Pre-sale property deep-cleans, end-of-tenancy detailing, pressure washing, building washes, and gutter clearing."
-    ],
-    image: "/property-sourcing.png",
-    cta: "Request Landscaping & Cleaning"
-  },
-  {
     id: "management",
     label: "Project Management",
-    title: "Complete Project Management",
-    description: "Let us manage the details. We schedule certified contractors, track milestones, execute strict quality assurance checks, and report transparently so you enjoy a completely stress-free property delivery.",
+    title: "Project Management & Supervision",
+    description: "End-to-end supervision of property repairs and building works. We coordinate certified trade contractors, track progress, and inspect finished quality.",
     icon: ClipboardList,
     items: [
-      "Project Scoping & Plan Formulation: Formulating timeline tracks, detailed materials estimation log, trade sequences, and risk-management buffers.",
-      "Vetting & Organizing Licensed Trades: Aligning licensed professionals (carpenters, electricians, plasterers) to coordinate seamless execution.",
-      "Milestone Timelines & Client Updates: Scheduling tasks, tracking deliverables, and providing transparent reports to landlords and investors.",
-      "Quality Inspections & Project Delivery: Applying rigid cosmetic standards testing, snagging logs clearance, final deep cleans, and handover."
+      "Project Planning & Scoping: Setting realistic project timelines, material costs, and trade schedules.",
+      "Vetting Certified Trades: Coordinating qualified carpenters, electricians, plumbers, and plasterers.",
+      "Quality Assurance & Snagging: Inspections throughout building works to clear snagging items before final sign-off."
     ],
-    image: "/hero-house.png",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
     cta: "Request Project Management"
   },
   {
     id: "sourcing",
     label: "Property Sourcing",
-    title: "Bespoke Property Sourcing",
-    description: "Premium rental and acquisition matchmaking leveraging private landlords and off-market housing agencies.",
+    title: "Property Sourcing & Acquisitions",
+    description: "Matchmaking search service for buyers and tenants seeking suitable properties across private landlord networks.",
     icon: Search,
     items: [
-      "Intake Assessment: Analyzing purchase vs. rent budgets, bedroom needs, and priority locations.",
-      "Agency & Landlord Matching: Filtering off-market properties using our database of private housing networks.",
-      "Matchmaking Handover: Direct coordination and tours scheduled to help you secure the ideal estate."
+      "Target Criteria Intake: Defining search parameters, location choices, target budgets, and occupancy needs.",
+      "Landlord Network Search: Scanning private databases and unlisted properties to isolate matches.",
+      "Inspection & Handover: Viewing properties in person and coordinating tenancy/sales paperwork."
     ],
-    image: "/property-sourcing.png",
-    cta: "Launch Sourcing Wizard",
+    image: "/uk-terraced-house.png",
+    cta: "Launch Sourcing Desk",
     href: "/property-sourcing"
+  },
+  {
+    id: "man-and-van",
+    label: "Man & Van Services",
+    title: "Man & Van Removals",
+    description: "Reliable furniture transport, household removals, and clearance services for tenants, landlords, and homebuyers.",
+    icon: Truck,
+    items: [
+      "Household & Flat Removals: Loading, transport, and unloading for home relocations.",
+      "Furniture Transport: Pick-up and delivery of sofas, beds, wardrobes, and heavy appliances.",
+      "Tenancy Clearance: House clearances and rubbish removal prior to tenancy end dates."
+    ],
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80",
+    cta: "Book Man & Van",
+    href: "/man-and-van"
   }
 ];
 
@@ -120,6 +120,9 @@ export default function Maintenance() {
             <h1 className="font-heading font-extrabold text-4xl md:text-5xl tracking-tight text-primary">
               Our <span className="text-secondary">Services</span>
             </h1>
+            <p className="text-luxury-muted text-sm md:text-base mt-2 max-w-2xl">
+              Dependable property care, maintenance, renovations, removals, and sourcing services for landlords, tenants, and homeowners.
+            </p>
           </motion.div>
 
           {/* Main Layout Grid */}
@@ -132,7 +135,6 @@ export default function Maintenance() {
                   Services
                 </span>
                 
-                {/* Clean Vertical list matching screenshot */}
                 <div className="flex flex-col border-l border-luxury-border/60">
                   {servicesData.map((service) => {
                     const isSelected = activeService === service.id;
@@ -154,7 +156,7 @@ export default function Maintenance() {
               </div>
             </div>
 
-            {/* Right Panel (Details Panel or Inline Collapse on Mobile) */}
+            {/* Right Panel */}
             <div className="lg:col-span-8">
               {/* Desktop Detail View */}
               <div className="hidden lg:block">
@@ -171,7 +173,6 @@ export default function Maintenance() {
                         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                         className="space-y-10"
                       >
-                        {/* Header Details */}
                         <div className="space-y-4">
                           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-xs font-semibold text-primary">
                             <IconComponent className="h-4 w-4 text-secondary" />
@@ -185,7 +186,6 @@ export default function Maintenance() {
                           </p>
                         </div>
 
-                        {/* Split Sub-items list & Image */}
                         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
                           <div className="md:col-span-7 space-y-4">
                             {service.items.map((bullet, idx) => {
@@ -214,27 +214,20 @@ export default function Maintenance() {
                           </div>
                         </div>
 
-                        {/* CTA Banner inside details */}
+                        {/* 24/7 Call Out Banner */}
                         <div className="p-8 rounded-xl bg-primary text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-luxury-card">
                           <div className="space-y-1.5 text-left">
-                            <h4 className="font-heading font-bold text-lg">Ready to discuss your request?</h4>
-                            <p className="text-blue-100 text-xs font-body">Contact our lead desk to review plans or coordinate visits.</p>
+                            <h4 className="font-heading font-bold text-lg">Need Immediate Assistance?</h4>
+                            <p className="text-blue-100 text-xs font-body">
+                              24/7 Emergency Call Out available anytime, even over the weekend. Both landlords and tenants can call out.
+                            </p>
                           </div>
-                          {service.href ? (
-                            <Link
-                              href={service.href}
-                              className="px-6 py-3.5 rounded-md bg-secondary hover:bg-secondary-hover text-primary font-bold text-[10px] tracking-widest uppercase shadow-gold-glow transition-all shrink-0 text-center"
-                            >
-                              {service.cta}
-                            </Link>
-                          ) : (
-                            <Link
-                              href="/contact"
-                              className="px-6 py-3.5 rounded-md bg-secondary hover:bg-secondary-hover text-primary font-bold text-[10px] tracking-widest uppercase shadow-gold-glow transition-all shrink-0 text-center"
-                            >
-                              {service.cta}
-                            </Link>
-                          )}
+                          <a
+                            href="tel:074"
+                            className="px-6 py-3.5 rounded-md bg-secondary hover:bg-secondary-hover text-white font-bold text-[10px] tracking-widest uppercase shadow-md transition-all shrink-0 text-center"
+                          >
+                            Call 074
+                          </a>
                         </div>
                       </motion.div>
                     );
@@ -242,7 +235,7 @@ export default function Maintenance() {
                 </AnimatePresence>
               </div>
 
-              {/* Mobile Collapsible View (renders expanded inline below each active item on smaller devices) */}
+              {/* Mobile Collapsible View */}
               <div className="block lg:hidden">
                 <span className="text-[11px] font-extrabold uppercase tracking-widest text-primary font-heading block mb-5 px-1.5">
                   Services
@@ -253,7 +246,6 @@ export default function Maintenance() {
                     const isSelected = activeService === service.id;
                     return (
                       <div key={service.id} className="w-full -ml-[1.5px]">
-                        {/* Mobile Accordion Header */}
                         <button
                           onClick={() => setActiveService(isSelected ? "" : service.id)}
                           className={`w-full text-left py-4 px-6 font-heading font-bold text-xl flex justify-between items-center transition-all border-l-2 ${
@@ -266,7 +258,6 @@ export default function Maintenance() {
                           <ChevronDown className={`h-4.5 w-4.5 text-secondary transition-transform duration-300 ${isSelected ? "rotate-180" : ""}`} />
                         </button>
 
-                        {/* Mobile Accordion Expanded Body */}
                         <AnimatePresence>
                           {isSelected && (
                             <motion.div
@@ -281,17 +272,14 @@ export default function Maintenance() {
                                   {service.description}
                                 </p>
 
-                                {/* Service Image on mobile */}
                                 <div className="relative rounded-xl overflow-hidden border border-luxury-border shadow-luxury-soft h-44 bg-luxury-alt">
                                   <img
                                     src={service.image}
                                     alt={service.label}
                                     className="w-full h-full object-cover"
                                   />
-                                  <div className="absolute inset-0 bg-gradient-to-t from-primary/25 to-transparent pointer-events-none" />
                                 </div>
 
-                                {/* Mobile Sub-items */}
                                 <div className="space-y-3.5 pt-1">
                                   {service.items.map((bullet, idx) => {
                                     const [title, desc] = bullet.split(": ");
@@ -309,7 +297,6 @@ export default function Maintenance() {
                                   })}
                                 </div>
 
-                                {/* Mobile CTA Button */}
                                 <div className="pt-2">
                                   <Link
                                     href={service.href || "/contact"}
