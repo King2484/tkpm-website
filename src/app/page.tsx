@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Hammer, Wrench, Shield, Check, ChevronRight, Truck, Search, Phone, Clock } from "lucide-react";
+import { ArrowRight, Hammer, Wrench, Shield, Check, ChevronRight, Truck, Search, Phone, Clock, Trees, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -22,10 +22,16 @@ const fadeInUp = {
 
 const serviceCards = [
   {
-    title: "Property Maintenance & Cleaning",
-    description: "General property care, day-to-day repairs, end-of-tenancy deep cleaning, garden landscaping, and 24/7 emergency call outs.",
+    title: "Property Maintenance & Repairs",
+    description: "General property care, day-to-day repairs, lock replacements, plumbing checks, and 24/7 emergency call outs.",
     href: "/maintenance",
     icon: Wrench,
+  },
+  {
+    title: "Landscaping & Deep Cleaning",
+    description: "Bespoke garden landscaping, lawn care, communal block deep cleans, jet washing, and heavy waste clearances.",
+    href: "/landscaping-cleaning",
+    icon: Trees,
   },
   {
     title: "Renovations & Alterations",
@@ -73,7 +79,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-xs font-bold tracking-wider uppercase text-secondary shadow-sm"
             >
               <Clock className="h-3.5 w-3.5" />
-              <span>TK Property Management</span>
+              <span>TK Property Maintenance</span>
             </motion.div>
 
             <motion.h1
@@ -84,7 +90,7 @@ export default function Home() {
               className="font-heading font-extrabold text-5xl md:text-6xl lg:text-7xl tracking-tight text-primary leading-[1.1]"
             >
               Reliable <br />
-              <span className="text-secondary">Property Management</span>
+              <span className="text-secondary">Property Maintenance</span>
             </motion.h1>
 
             <motion.p
@@ -181,6 +187,102 @@ export default function Home() {
                 </motion.div>
               );
             })}
+          </div>
+        </section>
+
+        {/* Real Work Highlights Showcase */}
+        <section className="relative py-24 px-6 md:px-12 lg:px-16 xl:px-24 max-w-[1600px] mx-auto z-10 border-t border-luxury-border/60">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+            <div className="space-y-3">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-secondary block">
+                Proof of Quality
+              </span>
+              <h2 className="font-heading font-extrabold text-3xl md:text-5xl text-primary">
+                Real Property Results
+              </h2>
+              <p className="text-luxury-muted text-sm md:text-base font-body max-w-2xl leading-relaxed">
+                Take a look at genuine transformations from our cleaning crews and landscaping architects across London and the North West.
+              </p>
+            </div>
+            <Link
+              href="/landscaping-cleaning"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider transition-all shrink-0 shadow-md"
+            >
+              <span>Explore Cleaning & Grounds</span>
+              <ArrowRight className="h-4 w-4 text-secondary" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+            {[
+              {
+                title: "Paved Patio & Garden Design",
+                tag: "Landscaping",
+                desc: "Curved paving, brick borders, and fresh bark mulching.",
+                img: "/cleaning/11.jpeg",
+                badge: "Garden Transformation",
+              },
+              {
+                title: "Apartment Entrance Deep Clean",
+                tag: "Communal Cleaning",
+                desc: "Mirror-finish buffed tiles, sanitised stairs, and spotless foyer.",
+                img: "/cleaning/5.jpeg",
+                badge: "Mirror Finish",
+              },
+              {
+                title: "Bin Store Heavy Rubbish Clearance",
+                tag: "Waste Clearance",
+                desc: "Overflowing refuse cleared, jet-washed, and fully deodorised.",
+                img: "/cleaning/4.jpeg",
+                badge: "Before & After",
+              },
+              {
+                title: "Residential Lawn & Perimeter Care",
+                tag: "Grounds Care",
+                desc: "Precision grass cutting, bush trimming, and neat frontage.",
+                img: "/cleaning/2.jpeg",
+                badge: "Street Appeal",
+              },
+            ].map((item, idx) => (
+              <Link
+                key={idx}
+                href="/landscaping-cleaning"
+                className="group h-full flex flex-col rounded-2xl overflow-hidden bg-white border border-luxury-border shadow-sm hover:shadow-xl transition-all duration-300"
+              >
+                {/* Image container - exact same aspect ratio for all cards */}
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-slate-900 shrink-0">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/75 via-transparent to-transparent pointer-events-none" />
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-primary/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider border border-white/10">
+                    {item.tag}
+                  </span>
+                  <span className="absolute bottom-3 left-3 text-secondary text-[11px] font-bold uppercase tracking-wider">
+                    {item.badge}
+                  </span>
+                </div>
+
+                {/* Card Content with equalized heights */}
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-heading font-bold text-base text-primary group-hover:text-secondary transition-colors line-clamp-2 h-12 flex items-center">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-luxury-muted font-body leading-relaxed line-clamp-2 h-9 mt-1 text-ellipsis overflow-hidden">
+                      {item.desc}
+                    </p>
+                  </div>
+                  <div className="pt-3 mt-4 border-t border-luxury-border/60 flex items-center justify-between text-[10px] font-extrabold uppercase tracking-widest text-primary group-hover:text-secondary transition-colors">
+                    <span>View Project</span>
+                    <ChevronRight className="h-3 w-3 text-secondary" />
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </section>
 

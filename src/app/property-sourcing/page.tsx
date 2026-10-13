@@ -234,8 +234,8 @@ export default function PropertySourcing() {
                 className="relative rounded-2xl overflow-hidden border border-luxury-border shadow-luxury-card aspect-[1.35/1] w-full"
               >
                 <img
-                  src="/uk-terraced-house.png"
-                  alt="Typical UK Red-Brick Terraced House"
+                  src="/properties/liverpool-l30/img-9.jpg"
+                  alt="UK Residential Family Home Exterior"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none" />

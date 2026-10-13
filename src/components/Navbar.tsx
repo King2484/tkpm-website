@@ -17,16 +17,24 @@ import {
   Search,
   ShieldCheck,
   Clock,
-  Truck
+  Truck,
+  Trees
 } from "lucide-react";
 
 const servicesList = [
   {
     href: "/maintenance",
     title: "Property Maintenance",
-    desc: "General property care, repairs, cleaning & garden landscaping",
+    desc: "General property care, day-to-day repairs & compliance",
     icon: Wrench,
     badge: "24/7 Call Out"
+  },
+  {
+    href: "/landscaping-cleaning",
+    title: "Landscaping & Cleaning",
+    desc: "Garden design, lawn care, communal deep cleans & waste clearance",
+    icon: Trees,
+    badge: "Real Works"
   },
   {
     href: "/project-management",
@@ -138,7 +146,7 @@ export default function Navbar() {
               <span className="h-2 w-2 rounded-full bg-secondary inline-block animate-pulse" />
             </div>
             <span className="text-[8px] font-bold tracking-[0.22em] text-luxury-muted uppercase -mt-1 hidden sm:block">
-              Property Management
+              Property Maintenance
             </span>
           </div>
         </Link>

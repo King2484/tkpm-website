@@ -52,7 +52,12 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             <li>
               <Link href="/maintenance" className="text-luxury-muted hover:text-secondary font-medium transition-colors">
-                Property Maintenance & Cleaning
+                Property Maintenance & Repairs
+              </Link>
+            </li>
+            <li>
+              <Link href="/landscaping-cleaning" className="text-luxury-muted hover:text-secondary font-medium transition-colors">
+                Landscaping & Deep Cleaning
               </Link>
             </li>
             <li>
@@ -131,7 +136,7 @@ export default function Footer() {
 
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 mt-16 pt-8 border-t border-luxury-border flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-luxury-muted text-xs">
-          &copy; {new Date().getFullYear()} TKPM Property Management. All rights reserved.
+          &copy; {new Date().getFullYear()} TKPM Property Maintenance. All rights reserved.
         </p>
         <div className="flex gap-6 text-xs text-luxury-muted">
           <Link href="/" className="hover:text-primary transition-colors font-medium">

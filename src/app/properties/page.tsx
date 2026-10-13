@@ -15,7 +15,8 @@ import {
   Building2, 
   ChevronDown,
   X,
-  Filter
+  Compass,
+  CheckCircle2
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -42,16 +43,24 @@ export default function PropertiesPage() {
   const [sortBy, setSortBy] = useState<"newest" | "price-asc" | "price-desc">("newest");
   const [showMobileFilters, setShowMobileFilters] = useState(false);
 
+  // Available categories in data
+  const availableCategories = useMemo(() => {
+    const cats = Array.from(new Set(propertiesData.map((p) => p.category)));
+    return cats;
+  }, []);
+
   // Filter & Sort Logic
   const filteredProperties = useMemo(() => {
     return propertiesData
       .filter((prop) => {
         // Search query filter
+        const query = searchQuery.toLowerCase().trim();
         const matchesSearch =
-          searchQuery === "" ||
-          prop.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          prop.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          prop.address.toLowerCase().includes(searchQuery.toLowerCase());
+          query === "" ||
+          prop.title.toLowerCase().includes(query) ||
+          prop.location.toLowerCase().includes(query) ||
+          prop.address.toLowerCase().includes(query) ||
+          prop.description.some((d) => d.toLowerCase().includes(query));
 
         // Type filter (Buy/Rent)
         const matchesType = typeFilter === "all" || prop.type === typeFilter;
@@ -116,7 +125,7 @@ export default function PropertiesPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-luxury-muted text-sm sm:text-base font-body leading-relaxed"
               >
-                Explore our selection of London flats, townhouses, and family homes available for sale and tenancy.
+                Explore our curated residential portfolio across Liverpool, Merseyside, and prime UK locations. Every property is fully inspected and maintained to high standards.
               </motion.p>
             </div>
 
@@ -142,13 +151,14 @@ export default function PropertiesPage() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search by location, neighborhood, or property name..."
+                  placeholder="Search Liverpool, postcode (L30), or features..."
                   className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-luxury-border focus:outline-none focus:border-secondary text-xs sm:text-sm font-semibold transition-all shadow-sm"
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary"
+                    aria-label="Clear search"
                   >
                     <X className="h-4 w-4" />
                   </button>
@@ -159,8 +169,8 @@ export default function PropertiesPage() {
               <div className="md:col-span-4 flex items-center bg-white p-1 rounded-xl border border-luxury-border shadow-sm">
                 {[
                   { key: "all", label: "All Properties" },
+                  { key: "rent", label: "To Rent" },
                   { key: "buy", label: "For Sale" },
-                  { key: "rent", label: "For Rent" },
                 ].map((tab) => (
                   <button
                     key={tab.key}
@@ -186,11 +196,14 @@ export default function PropertiesPage() {
                     className="w-full appearance-none px-4 py-3 rounded-xl bg-white border border-luxury-border focus:outline-none focus:border-secondary text-xs font-bold uppercase tracking-wider text-slate-700 cursor-pointer shadow-sm pr-8"
                   >
                     <option value="all">All Categories</option>
-                    <option value="Penthouse">Penthouse</option>
+                    {availableCategories.map((cat) => (
+                      <option key={cat} value={cat}>
+                        {cat}
+                      </option>
+                    ))}
+                    <option value="House">House</option>
+                    <option value="Flat">Flat</option>
                     <option value="Townhouse">Townhouse</option>
-                    <option value="Apartment">Apartment</option>
-                    <option value="Villa">Villa</option>
-                    <option value="Estate">Estate</option>
                   </select>
                   <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />
                 </div>
@@ -270,11 +283,12 @@ export default function PropertiesPage() {
                       className="w-full px-4 py-2.5 rounded-lg bg-white border border-luxury-border text-xs font-bold"
                     >
                       <option value="all">All Categories</option>
-                      <option value="Penthouse">Penthouse</option>
-                      <option value="Townhouse">Townhouse</option>
-                      <option value="Apartment">Apartment</option>
-                      <option value="Villa">Villa</option>
-                      <option value="Estate">Estate</option>
+                      {availableCategories.map((cat) => (
+                        <option key={cat} value={cat}>
+                          {cat}
+                        </option>
+                      ))}
+                      <option value="House">House</option>
                     </select>
                   </div>
 
@@ -315,19 +329,22 @@ export default function PropertiesPage() {
           </div>
         </section>
 
-        {/* Property Grid Results Section */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        {/* Properties Listings Container */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full">
           
           {/* Results Count Header */}
           <div className="flex items-center justify-between pb-6">
             <span className="text-xs font-bold tracking-widest text-slate-400 uppercase">
-              Showing {filteredProperties.length} {filteredProperties.length === 1 ? "Property" : "Properties"}
+              Showing {filteredProperties.length} {filteredProperties.length === 1 ? "Property Available" : "Properties Available"}
             </span>
+            <div className="text-xs font-semibold text-slate-500 hidden sm:block">
+              Liverpool L30 • Merseyside Focus
+            </div>
           </div>
 
           {/* Grid Container */}
           {filteredProperties.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
               {filteredProperties.map((property, idx) => (
                 <motion.div
                   key={property.id}
@@ -339,27 +356,38 @@ export default function PropertiesPage() {
                 >
                   <div>
                     {/* Property Image & Status Badges */}
-                    <div className="relative aspect-[1.4/1] w-full overflow-hidden bg-slate-100">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-900">
                       <img
                         src={property.heroImage}
                         alt={property.title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-black/20 pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 pointer-events-none" />
 
                       {/* Top Badges */}
                       <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                         <span className={`px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider text-white shadow-sm ${
                           property.type === "buy" ? "bg-primary" : "bg-emerald-700"
                         }`}>
-                          {property.type === "buy" ? "For Sale" : "For Rent"}
+                          {property.type === "buy" ? "For Sale" : "To Rent"}
                         </span>
-                        {property.status === "Featured" && (
+                        {property.status === "Newly Listed" && (
+                          <span className="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider text-primary bg-secondary shadow-sm flex items-center gap-1">
+                            <Sparkles className="h-3 w-3" />
+                            <span>Newly Listed</span>
+                          </span>
+                        )}
+                        {property.featured && property.status !== "Newly Listed" && (
                           <span className="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider text-primary bg-secondary shadow-sm flex items-center gap-1">
                             <Sparkles className="h-3 w-3" />
                             <span>Featured</span>
                           </span>
                         )}
+                      </div>
+
+                      {/* Photo Count Tag */}
+                      <div className="absolute top-4 right-4 bg-slate-950/60 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-white">
+                        {property.images.length} Photos
                       </div>
 
                       {/* Bottom Price Overlay */}
@@ -396,11 +424,23 @@ export default function PropertiesPage() {
                         </div>
                         <div className="flex items-center gap-1.5">
                           <Bath className="h-4 w-4 text-secondary shrink-0" />
-                          <span>{property.bathrooms} Baths</span>
+                          <span>{property.bathrooms} Bath</span>
                         </div>
                         <div className="flex items-center gap-1.5">
                           <Maximize2 className="h-4 w-4 text-secondary shrink-0" />
                           <span>{property.sqft.toLocaleString()} sqft</span>
+                        </div>
+                      </div>
+
+                      {/* Key highlights bullets */}
+                      <div className="space-y-1.5 pt-1">
+                        <div className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                          <span className="truncate">Private driveway & large rear garden</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                          <span className="truncate">Freshly refurbished & painted throughout</span>
                         </div>
                       </div>
                     </div>
@@ -410,14 +450,115 @@ export default function PropertiesPage() {
                   <div className="px-6 pb-6 pt-0">
                     <Link
                       href={`/properties/${property.slug}`}
-                      className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-50 hover:bg-primary text-primary hover:text-white font-bold text-xs uppercase tracking-wider transition-all border border-slate-200 group/btn"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary hover:bg-slate-900 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md group/btn"
                     >
-                      <span>View Residence</span>
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                      <span>View Full Property Details</span>
+                      <ArrowRight className="h-4 w-4 text-secondary transition-transform group-hover/btn:translate-x-1" />
                     </Link>
                   </div>
                 </motion.div>
               ))}
+
+              {/* Bespoke Off-Market Sourcing Companion Card (Provides aesthetic balance) */}
+              <motion.div
+                custom={1}
+                initial="hidden"
+                animate="visible"
+                variants={fadeInUp}
+                className="bg-gradient-to-br from-slate-900 via-primary to-slate-950 text-white rounded-2xl border border-secondary/30 p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden group"
+              >
+                <div className="absolute top-0 right-0 w-48 h-48 bg-secondary/10 rounded-full blur-2xl pointer-events-none" />
+                
+                <div className="space-y-5 relative z-10">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 border border-secondary/30 text-[10px] font-extrabold uppercase tracking-wider text-secondary">
+                    <Compass className="h-3 w-3" />
+                    <span>Bespoke Property Search</span>
+                  </div>
+
+                  <h3 className="font-heading font-extrabold text-2xl text-white leading-snug">
+                    Looking for a Specific Home in Merseyside?
+                  </h3>
+
+                  <p className="text-slate-300 text-xs sm:text-sm font-body leading-relaxed">
+                    Our acquisitions team matches families, professionals, and corporate tenants with vetted private landlord listings before they reach public portals.
+                  </p>
+
+                  <div className="space-y-2.5 pt-2">
+                    <div className="flex items-center gap-2 text-xs text-slate-200">
+                      <CheckCircle2 className="h-4 w-4 text-secondary shrink-0" />
+                      <span>Liverpool L30, Sefton & Merseyside coverage</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-slate-200">
+                      <CheckCircle2 className="h-4 w-4 text-secondary shrink-0" />
+                      <span>Tailored budget, bedroom & garden criteria</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-slate-200">
+                      <CheckCircle2 className="h-4 w-4 text-secondary shrink-0" />
+                      <span>Direct viewings & rapid tenancy agreements</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-6 relative z-10">
+                  <Link
+                    href="/property-sourcing"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-secondary hover:bg-secondary-hover text-white font-bold text-xs uppercase tracking-widest transition-all shadow-lg hover:scale-[1.02]"
+                  >
+                    <span>Request Property Sourcing</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Landlord Property Listing CTA Card */}
+              <motion.div
+                custom={2}
+                initial="hidden"
+                animate="visible"
+                variants={fadeInUp}
+                className="bg-luxury-alt rounded-2xl border border-luxury-border p-8 flex flex-col justify-between shadow-luxury-soft relative overflow-hidden"
+              >
+                <div className="space-y-5">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-extrabold uppercase tracking-wider text-primary">
+                    <Building2 className="h-3 w-3 text-secondary" />
+                    <span>For Landlords & Owners</span>
+                  </div>
+
+                  <h3 className="font-heading font-extrabold text-2xl text-primary leading-snug">
+                    List Your Property With TKPM
+                  </h3>
+
+                  <p className="text-luxury-muted text-xs sm:text-sm font-body leading-relaxed">
+                    Have a property to let or sell in Liverpool or Merseyside? Benefit from complete property management, professional cleaning, maintenance, and high-calibre tenant placement.
+                  </p>
+
+                  <div className="space-y-2.5 pt-2 text-xs text-slate-700 font-semibold">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                      <span>Zero hassle end-to-end management</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                      <span>Vetted professional tenants</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                      <span>In-house maintenance & emergency call outs</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-6">
+                  <Link
+                    href="/contact"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-slate-900 hover:bg-primary text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md"
+                  >
+                    <span>Speak with Lettings Team</span>
+                    <ArrowRight className="h-4 w-4 text-secondary" />
+                  </Link>
+                </div>
+              </motion.div>
+
             </div>
           ) : (
             /* Empty State */
@@ -444,13 +585,13 @@ export default function PropertiesPage() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-8 space-y-4">
               <span className="text-[10px] font-extrabold tracking-widest text-secondary uppercase bg-secondary/10 px-3 py-1 rounded-full border border-secondary/20">
-                Off-Market Acquisition Desk
+                Liverpool & Merseyside Sourcing Desk
               </span>
               <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-white leading-tight">
-                Searching for Something Unlisted?
+                Searching for Something Specific?
               </h2>
               <p className="text-slate-300 text-xs sm:text-sm font-body max-w-2xl leading-relaxed">
-                Over 40% of prime London transactions occur off-market. Our acquisitions team accesses private landlord registries and unlisted estate portfolios tailored to your criteria.
+                Many prime rental homes and investment opportunities never hit public portals. Our local acquisitions desk connects directly with landlords across Liverpool, Bootle, and surrounding areas.
               </p>
             </div>
             
@@ -459,7 +600,7 @@ export default function PropertiesPage() {
                 href="/property-sourcing"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-secondary hover:bg-secondary-hover text-white font-bold text-xs uppercase tracking-widest shadow-xl transition-all hover:scale-105"
               >
-                <span>Launch Off-Market Search</span>
+                <span>Launch Bespoke Search</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

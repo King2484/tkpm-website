@@ -291,6 +291,79 @@ export default function ManAndVanPage() {
           </div>
         </section>
 
+        {/* Tenancy & Bulky Waste Clearance Spotlight */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="bg-primary text-white rounded-2xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              
+              <div className="lg:col-span-6 space-y-6">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-secondary bg-secondary/10 px-3.5 py-1.5 rounded-full border border-secondary/20 inline-block">
+                  Verified Property Clearance
+                </span>
+                <h3 className="font-heading font-extrabold text-3xl sm:text-4xl text-white">
+                  Bulky Waste & Tenancy Clearance
+                </h3>
+                <p className="text-slate-300 text-sm leading-relaxed font-body">
+                  Leftover tenancy clutter, abandoned furniture, or overflowing bin stores? Our man and van crews arrive on-site, rapidly clear all rubbish, sweep down floors, and transport items for licensed, eco-responsible disposal.
+                </p>
+
+                <div className="grid grid-cols-2 gap-4 pt-2">
+                  <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                    <span className="text-secondary font-extrabold text-lg block">Same-Day</span>
+                    <span className="text-xs text-slate-300 block mt-0.5">Rapid clearance dispatch</span>
+                  </div>
+                  <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                    <span className="text-secondary font-extrabold text-lg block">100% Cleared</span>
+                    <span className="text-xs text-slate-300 block mt-0.5">Heavy sweep & decontamination</span>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <Link
+                    href="/landscaping-cleaning"
+                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-secondary hover:underline"
+                  >
+                    <span>View Before & After Deep Clearance Gallery</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Visual Side-by-Side Dual Photos (3.jpeg & 4.jpeg) */}
+              <div className="lg:col-span-6 grid grid-cols-2 gap-4">
+                <div className="relative rounded-xl overflow-hidden aspect-[3/4] border border-white/20 shadow-lg group">
+                  <img
+                    src="/cleaning/3.jpeg"
+                    alt="Overflowing bin store before clearance"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute top-3 left-3 bg-red-600/90 text-white text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded shadow">
+                    Before
+                  </span>
+                  <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/80 to-transparent text-[10px] text-white">
+                    Heavy waste build-up
+                  </div>
+                </div>
+
+                <div className="relative rounded-xl overflow-hidden aspect-[3/4] border border-white/20 shadow-lg group">
+                  <img
+                    src="/cleaning/4.jpeg"
+                    alt="Cleaned bin store after clearance"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute top-3 left-3 bg-emerald-600/90 text-white text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded shadow">
+                    After
+                  </span>
+                  <div className="absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/80 to-transparent text-[10px] text-white">
+                    Spotless swept finish
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
         {/* FAQs Section */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center space-y-2 mb-10">

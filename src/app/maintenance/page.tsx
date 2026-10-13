@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Settings, Check, ChevronDown, Hammer, Trees, ClipboardList, Search, Truck, Clock, Sparkles } from "lucide-react";
+import { Settings, Check, ChevronDown, ChevronRight, Hammer, Trees, ClipboardList, Search, Truck, Clock, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -33,7 +33,7 @@ const servicesData = [
       "Landscaping & Garden Care: Garden upkeep, lawn mowing, hedge trimming, weed clearance, patio cleaning, and outdoor plant maintenance.",
       "24/7 Emergency Call Out: Available anytime, even over the weekend. Both landlords and tenants can call out for critical leaks, heating breakdowns, or lockouts."
     ],
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80",
+    image: "/cleaning/5.jpeg",
     cta: "Book Maintenance or Call Out"
   },
   {
@@ -75,7 +75,7 @@ const servicesData = [
       "Landlord Network Search: Scanning private databases and unlisted properties to isolate matches.",
       "Inspection & Handover: Viewing properties in person and coordinating tenancy/sales paperwork."
     ],
-    image: "/uk-terraced-house.png",
+    image: "/properties/liverpool-l30/img-9.jpg",
     cta: "Launch Sourcing Desk",
     href: "/property-sourcing"
   },
@@ -317,6 +317,92 @@ export default function Maintenance() {
 
             </div>
 
+          </div>
+
+          {/* Real Work: Cleaning & Landscaping Highlights */}
+          <div className="mt-24 pt-20 border-t border-luxury-border">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+              <div className="space-y-2">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-secondary block">
+                  Authentic On-Site Portfolio
+                </span>
+                <h3 className="font-heading font-extrabold text-3xl md:text-4xl text-primary">
+                  Recent Cleaning & Grounds Transformations
+                </h3>
+                <p className="text-luxury-muted text-sm max-w-2xl font-body">
+                  Take a look at real results across communal block deep cleans, waste clearances, and residential garden landscaping completed by our teams.
+                </p>
+              </div>
+              <Link
+                href="/landscaping-cleaning"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider transition-all shrink-0"
+              >
+                <span>View All Cleaning & Grounds</span>
+                <Sparkles className="h-3.5 w-3.5 text-secondary" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+              {[
+                {
+                  title: "Garden & Patio Renovation",
+                  tag: "Landscaping",
+                  desc: "Curved block-paved patio, raised brick borders, and fresh wood mulch.",
+                  img: "/cleaning/11.jpeg",
+                },
+                {
+                  title: "Communal Entrance Polish",
+                  tag: "Deep Cleaning",
+                  desc: "Mirror-finish ceramic floor buffing and staircase sanitization.",
+                  img: "/cleaning/5.jpeg",
+                },
+                {
+                  title: "Lawn & Boundary Care",
+                  tag: "Grounds Upkeep",
+                  desc: "Precision lawn mowing, hedge trimming, and perimeter railings care.",
+                  img: "/cleaning/2.jpeg",
+                },
+                {
+                  title: "Bin Store Rubbish Clearance",
+                  tag: "Waste Clearance",
+                  desc: "Total clearance of overflowing debris and full bay sanitization.",
+                  img: "/cleaning/4.jpeg",
+                },
+              ].map((item, idx) => (
+                <Link
+                  key={idx}
+                  href="/landscaping-cleaning"
+                  className="group h-full flex flex-col rounded-2xl overflow-hidden bg-white border border-luxury-border shadow-sm hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-slate-900 shrink-0">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/65 via-transparent to-transparent pointer-events-none" />
+                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-primary/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider border border-white/10">
+                      {item.tag}
+                    </span>
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4 className="font-heading font-bold text-base text-primary group-hover:text-secondary transition-colors line-clamp-2 h-12 flex items-center">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-luxury-muted font-body leading-relaxed line-clamp-2 h-9 mt-1 text-ellipsis overflow-hidden">
+                        {item.desc}
+                      </p>
+                    </div>
+                    <div className="pt-3 mt-4 border-t border-luxury-border/60 flex items-center justify-between text-[10px] font-extrabold uppercase tracking-widest text-primary group-hover:text-secondary transition-colors">
+                      <span>View Service</span>
+                      <ChevronRight className="h-3 w-3 text-secondary" />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
 
         </div>

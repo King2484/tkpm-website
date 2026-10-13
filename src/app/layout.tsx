@@ -13,8 +13,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "TKPM | Premium Property Management & Renovations",
-  description: "TK Property Management provides luxury-tier services across property renovations, maintenance, landscaping, cleaning, and professional project management.",
+  title: "TKPM | Premium Property Maintenance & Renovations",
+  description: "TKPM provides luxury-tier services across property maintenance, renovations, landscaping, cleaning, and professional property care.",
 };
 
 export default function RootLayout({
